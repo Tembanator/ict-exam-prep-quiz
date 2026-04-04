@@ -1,0 +1,32 @@
+export const chapters: ChapterType[] = [
+  { id: 1, title: "Types and Components of Computer Systems", topics: ["Hardware", "Software", "Operating Systems"], questionCount: 25, hasTheory: true, hasPractical: false },
+  { id: 2, title: "Input and Output Devices", topics: ["Input Devices", "Output Devices", "Sensors"], questionCount: 30, hasTheory: true, hasPractical: true },
+  { id: 3, title: "Storage Devices and Media", topics: ["Magnetic", "Optical", "Solid State"], questionCount: 28, hasTheory: true, hasPractical: false },
+  { id: 4, title: "Networks and the Effects of Using Them", topics: ["LAN", "WAN", "Network Security"], questionCount: 35, hasTheory: true, hasPractical: false },
+  { id: 5, title: "The Effects of Using IT", topics: ["Health", "Safety", "Environmental"], questionCount: 20, hasTheory: true, hasPractical: false },
+  { id: 6, title: "ICT Applications", topics: ["Communication", "Banking", "E-commerce"], questionCount: 32, hasTheory: true, hasPractical: true },
+  { id: 7, title: "The Systems Life Cycle", topics: ["Analysis", "Design", "Implementation"], questionCount: 28, hasTheory: true, hasPractical: false },
+  { id: 8, title: "Safety and Security", topics: ["Data Security", "Backups", "Malware"], questionCount: 25, hasTheory: true, hasPractical: false },
+  { id: 9, title: "Audience", topics: ["Target Audience", "Legal Constraints"], questionCount: 18, hasTheory: true, hasPractical: false },
+  { id: 10, title: "Communication", topics: ["Email", "Video Conferencing", "Instant Messaging"], questionCount: 22, hasTheory: true, hasPractical: true },
+  { id: 11, title: "File Management", topics: ["Organization", "Naming Conventions"], questionCount: 20, hasTheory: false, hasPractical: true },
+  { id: 12, title: "Images", topics: ["File Types", "Editing", "Resolution"], questionCount: 25, hasTheory: true, hasPractical: true },
+  { id: 13, title: "Layout", topics: ["Page Setup", "Tables", "Headers"], questionCount: 24, hasTheory: false, hasPractical: true },
+  { id: 14, title: "Styles", topics: ["CSS", "Templates", "Themes"], questionCount: 22, hasTheory: true, hasPractical: true },
+  { id: 15, title: "Proofing", topics: ["Spell Check", "Grammar", "Thesaurus"], questionCount: 18, hasTheory: false, hasPractical: true },
+  { id: 16, title: "Graphs and Charts", topics: ["Data Visualization", "Chart Types"], questionCount: 26, hasTheory: true, hasPractical: true },
+  { id: 17, title: "Database and File Concepts", topics: ["Tables", "Queries", "Relationships"], questionCount: 30, hasTheory: true, hasPractical: true },
+  { id: 18, title: "Data Manipulation", topics: ["Sorting", "Filtering", "Validation"], questionCount: 28, hasTheory: true, hasPractical: true },
+  { id: 19, title: "Presentation", topics: ["Slides", "Animations", "Transitions"], questionCount: 24, hasTheory: false, hasPractical: true },
+  { id: 20, title: "Web Authoring", topics: ["HTML", "CSS", "Hyperlinks"], questionCount: 32, hasTheory: true, hasPractical: true },
+  { id: 21, title: "Email", topics: ["Compose", "Attachments", "CC/BCC"], questionCount: 20, hasTheory: false, hasPractical: true },
+]
+
+export type ChapterType = {
+  id: number
+  title: string
+  topics: string[]
+  questionCount: number
+  hasTheory: boolean
+  hasPractical: boolean
+}
