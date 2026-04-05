@@ -9,7 +9,7 @@ export default function QuizCTA() {
           Ready to test your knowledge?
         </h2>
         <p className="text-slate-600 mb-8">
-          Jump straight into the quiz and practice with real exam-style
+          Jump straight into the exam prep and practice with multiple-choice
           questions.
         </p>
         <Button href="/auth-callback" variant="primary" size="lg">
