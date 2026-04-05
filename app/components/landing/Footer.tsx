@@ -64,7 +64,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-400">
-          <p>&copy; 2026 0417 ICT Exam Prep. Created By TS Dlamini.</p>
+          <p>
+            &copy; 2026 0417 ICT Exam Prep. Created By{" "}
+            <span className="text-indigo-400">TS Dlamini</span>.
+          </p>
         </div>
       </div>
     </footer>
