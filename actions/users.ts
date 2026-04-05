@@ -13,6 +13,12 @@ interface CreateUserData {
   lastName: string;
 }
 
+export async function getUserByEmail(email: string) {
+  await mongodb();
+  const user = await User.findOne({ email }).lean();
+  return user ? JSON.parse(JSON.stringify(user)) : null;
+}
+
 export async function createOrSyncUser(userData: CreateUserData) {
   try {
     await mongodb();

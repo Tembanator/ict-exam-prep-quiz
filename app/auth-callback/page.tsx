@@ -21,6 +21,7 @@ export default async function AuthCallbackPage() {
     lastName: kindeUser.family_name || "",
   });
 
+  console.log("Results: ", result);
   if (result) {
     // Handle sync failure
     if (!result.success) {

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./AuthProvider";
 import { Navbar } from "./components/landing/Navbar";
+import { FloatingStatus } from "./components/ui/FloatingStatus";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,10 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <Navbar />
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <FloatingStatus />
+        </AuthProvider>
       </body>
     </html>
   );

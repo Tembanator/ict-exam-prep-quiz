@@ -3,7 +3,7 @@ import React from "react";
 import { Clock, LogOut, Mail } from "lucide-react";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 import { Button } from "../ui/Button";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 export default function PendingApprovalComponent() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function PendingApprovalComponent() {
           <div className="space-y-4 text-slate-600">
             <p>
               Thank you for registering! Your account has been created and is
-              awaiting verification by an administrator.
+              awaiting verification by the administrator.
             </p>
             <p className="text-sm">
               Once approved, you'll receive access to all 21 chapters of the
@@ -57,7 +57,7 @@ export default function PendingApprovalComponent() {
           {/* Actions */}
           <div className="mt-6 space-y-3">
             <Button
-              onClick={() => router.refresh()}
+              onClick={() => redirect("/auth-callback")}
               variant="outline"
               size="md"
               className="w-full"

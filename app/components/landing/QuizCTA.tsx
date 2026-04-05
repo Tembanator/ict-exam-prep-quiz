@@ -12,8 +12,8 @@ export default function QuizCTA() {
           Jump straight into the quiz and practice with real exam-style
           questions.
         </p>
-        <Button href="/chapters" variant="primary" size="lg">
-          Start Quiz Now
+        <Button href="/auth-callback" variant="primary" size="lg">
+          Start Exam Prep
         </Button>
       </div>
     </section>
