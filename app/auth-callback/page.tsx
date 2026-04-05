@@ -21,28 +21,30 @@ export default async function AuthCallbackPage() {
     lastName: kindeUser.family_name || "",
   });
 
-  // Handle sync failure
-  if (!result.success) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-indigo-50/30">
-        <div className="max-w-md w-full mx-4 bg-white rounded-xl shadow-lg border border-slate-200 p-8 text-center">
-          <div className="mb-6 inline-flex p-3 bg-red-100 rounded-full">
-            <AlertCircle className="w-8 h-8 text-red-600" />
-          </div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">
-            Registration Failed
-          </h2>
-          <p className="text-slate-600 mb-6">
-            {result.message ||
-              "An unexpected error occurred while creating your account."}
-          </p>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-800">
-            <p className="font-medium">Please try again</p>
-            <p className="mt-1">If the problem persists, contact support.</p>
+  if (result) {
+    // Handle sync failure
+    if (!result.success) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-indigo-50/30">
+          <div className="max-w-md w-full mx-4 bg-white rounded-xl shadow-lg border border-slate-200 p-8 text-center">
+            <div className="mb-6 inline-flex p-3 bg-red-100 rounded-full">
+              <AlertCircle className="w-8 h-8 text-red-600" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              Registration Failed
+            </h2>
+            <p className="text-slate-600 mb-6">
+              {result.message ||
+                "An unexpected error occurred while creating your account."}
+            </p>
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-800">
+              <p className="font-medium">Please try again</p>
+              <p className="mt-1">If the problem persists, contact support.</p>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 
   // Successful sync – route based on user status and role
