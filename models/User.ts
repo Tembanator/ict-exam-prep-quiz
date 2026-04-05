@@ -11,11 +11,11 @@ export interface IUser extends Document {
   createdAt: Date;
   updatedAt: Date;
   lastLogin?: Date;
-  quizStats?: {
-    totalQuizzesTaken: number;
-    averageScore: number;
-    chaptersCompleted: number[];
-  };
+  // quizStats?: {
+  //   totalQuizzesTaken: number;
+  //   averageScore: number;
+  //   chaptersCompleted: number[];
+  // };
 }
 
 const UserSchema = new Schema<IUser>(
@@ -61,11 +61,11 @@ const UserSchema = new Schema<IUser>(
       type: Date,
       default: Date.now,
     },
-    quizStats: {
-      totalQuizzesTaken: { type: Number, default: 0 },
-      averageScore: { type: Number, default: 0 },
-      chaptersCompleted: [{ type: Number }],
-    },
+    // quizStats: {
+    //   totalQuizzesTaken: { type: Number, default: 0 },
+    //   averageScore: { type: Number, default: 0 },
+    //   chaptersCompleted: [{ type: Number }],
+    // },
   },
   {
     timestamps: true,

@@ -4,15 +4,17 @@ import { BookOpen } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "../ui/Button";
-import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/server";
+import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs";
 import {
   LogoutLink,
   useKindeBrowserClient,
 } from "@kinde-oss/kinde-auth-nextjs";
+import { useAdminStatus } from "@/hooks/useAdminStatus";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isAuthenticated } = useKindeBrowserClient();
+  const { isAdmin } = useAdminStatus(); // use the custom hook
 
   return (
     <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
@@ -45,11 +47,19 @@ export function Navbar() {
               </>
             )}
             {isAuthenticated && (
-              <LogoutLink>
-                <Button variant="outline" size="sm">
-                  Logout
-                </Button>
-              </LogoutLink>
+              <>
+                {/* Only show Admin button if user is approved admin */}
+                {isAdmin && (
+                  <Button href="/admin" variant="primary" size="sm">
+                    Admin
+                  </Button>
+                )}
+                <LogoutLink>
+                  <Button variant="outline" size="sm">
+                    Logout
+                  </Button>
+                </LogoutLink>
+              </>
             )}
           </div>
 
@@ -90,39 +100,35 @@ export function Navbar() {
             {!isAuthenticated && (
               <>
                 <LoginLink>
-                  <Button
-                    href="/login"
-                    variant="outline"
-                    size="sm"
-                    className="w-full"
-                  >
+                  <Button variant="outline" size="sm" className="w-full">
                     Log In
                   </Button>
                 </LoginLink>
-
                 <RegisterLink>
-                  <Button
-                    href="/register"
-                    variant="primary"
-                    size="sm"
-                    className="w-full"
-                  >
+                  <Button variant="primary" size="sm" className="w-full">
                     Get Started
                   </Button>
                 </RegisterLink>
               </>
             )}
             {isAuthenticated && (
-              <LogoutLink>
-                <Button
-                  href="/dashboard"
-                  variant="outline"
-                  size="sm"
-                  className="w-full"
-                >
-                  Logout
-                </Button>
-              </LogoutLink>
+              <>
+                {isAdmin && (
+                  <Button
+                    href="/admin"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Admin
+                  </Button>
+                )}
+                <LogoutLink>
+                  <Button variant="outline" size="sm" className="w-full">
+                    Logout
+                  </Button>
+                </LogoutLink>
+              </>
             )}
           </div>
         )}
