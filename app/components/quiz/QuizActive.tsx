@@ -139,7 +139,7 @@ export function QuizActive({
         {/* Timer */}
         <div className="mb-6">
           <QuizTimer
-            duration={30}
+            duration={60}
             onTimeout={handleTimeout}
             resetTrigger={currentIndex}
             isActive={!feedback}
@@ -208,8 +208,8 @@ export function QuizActive({
           ) : (
             <Button onClick={handleContinue} variant="primary">
               {currentIndex + 1 === totalQuestions
-                ? "🏁 Finish Quiz"
-                : "➡️ Next Question"}
+                ? "Finish Quiz"
+                : "Next Question"}
             </Button>
           )}
         </div>

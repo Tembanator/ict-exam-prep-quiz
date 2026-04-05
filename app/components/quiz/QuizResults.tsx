@@ -35,7 +35,7 @@ export function QuizResults({
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg border border-slate-200 p-8">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-slate-900">📊 Quiz Results</h1>
+        <h1 className="text-3xl font-bold text-slate-900">Quiz Results</h1>
         <p className="text-slate-600 mt-2">Chapter: {chapterName}</p>
         <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 rounded-full">
           <span className="text-2xl font-bold text-indigo-600">{score}</span>
@@ -62,7 +62,7 @@ export function QuizResults({
 
       <div className="space-y-4 mb-8">
         <h2 className="text-lg font-semibold text-slate-900">
-          📝 Question Review
+          Question Review
         </h2>
         {userAnswers.map((answer, idx) => (
           <div

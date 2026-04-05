@@ -12,7 +12,7 @@ interface QuizSetupProps {
   chapterNum: number;
 }
 
-const questionOptions = [2, 5, 10, 15, 20, 25, 30];
+const questionOptions = [5, 10, 15, 20, 25, 30];
 
 export function QuizSetup({
   totalAvailable,
@@ -92,7 +92,7 @@ export function QuizSetup({
               Estimated time
             </p>
             <p className="text-xs text-indigo-700">
-              ~{Math.ceil(selectedCount * 0.5)} minutes (30 sec per question)
+              ~{Math.ceil(selectedCount)} minutes (60 sec per question)
             </p>
           </div>
         </div>
