@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 // import { createOrSyncUser } from "@/actions/user"; // fixed import path
 import { AlertCircle } from "lucide-react";
 import { createOrSyncUser } from "@/actions/users";
+import { send } from "process";
+import { sendWelcomeEmail } from "@/actions/emails";
 
 export default async function AuthCallbackPage() {
   const { getUser } = getKindeServerSession();
@@ -21,7 +23,6 @@ export default async function AuthCallbackPage() {
     lastName: kindeUser.family_name || "",
   });
 
-  console.log("Results: ", result);
   if (result) {
     // Handle sync failure
     if (!result.success) {
@@ -53,6 +54,8 @@ export default async function AuthCallbackPage() {
 
   // New user → pending approval page
   if (isNew) {
+    await sendWelcomeEmail();
+
     redirect("/pending-approval");
   }
 
