@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 // import { createOrSyncUser } from "@/actions/user"; // fixed import path
