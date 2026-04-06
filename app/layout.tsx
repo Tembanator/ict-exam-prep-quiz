@@ -9,7 +9,7 @@ import Footer from "./components/landing/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "0417 ICT Exam Quiz | Master Your ICT Exams",
+  title: "0417 ICT Exam Prep | Master Your ICT Exams",
   description:
     "Comprehensive quiz application for 0417 ICT students. 21 chapters of theory and practical content with detailed explanations.",
 };
