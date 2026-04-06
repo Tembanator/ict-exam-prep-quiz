@@ -56,7 +56,7 @@ export default async function AuthCallbackPage() {
 
   // New user → pending approval page
   if (isNew) {
-    await sendWelcomeEmail();
+    await sendWelcomeEmail(user.firstName || "there"); // Send welcome email to new user
 
     redirect("/pending-approval");
   }

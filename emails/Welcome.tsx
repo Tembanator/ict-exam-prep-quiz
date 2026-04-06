@@ -14,16 +14,16 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-// interface WelcomeEmailProps {
-//   userName?: string;
-// }
+interface WelcomeEmailProps {
+  name?: string;
+}
 
 // Ensure images have absolute URLs so they render in email clients
-const baseUrl = process.env.RENDER_URL
-  ? `https://${process.env.RENDER_URL}`
-  : "http://localhost:3000";
+// const baseUrl = process.env.RENDER_URL
+//   ? `https://${process.env.RENDER_URL}`
+//   : "http://localhost:3000";
 
-export const WelcomeEmail = () => {
+export const WelcomeEmail = ({ name }: WelcomeEmailProps) => {
   return (
     <Html>
       <Head />
@@ -41,11 +41,11 @@ export const WelcomeEmail = () => {
         }}
       >
         <Body className="bg-[#f6f9fc] font-sans">
-          <Container className="mx-auto my-[40px] max-w-[600px] bg-white p-[40px] rounded-xl shadow-sm border border-[#e6ebf1]">
+          <Container className="mx-auto my-10 max-w-[600px] bg-white p-10 rounded-xl shadow-sm border border-[#e6ebf1]">
             {/* Logo from /public folder */}
             <Section className="text-center mb-[32px]">
               <Img
-                src={`${baseUrl}/ICT%20EXAM.png`}
+                src={`https://moccasin-main-rattlesnake-486.mypinata.cloud/ipfs/bafkreihwt63rhgxwbicly5z3vcrgnbm3yhav2tuokgbff3yluecqvsaaie`}
                 alt="ICT Exam Prep"
                 width="140"
                 className="mx-auto"
@@ -58,7 +58,7 @@ export const WelcomeEmail = () => {
 
             <Section>
               <Text className="text-[16px] leading-[24px] text-[#525f7f]">
-                Hi student,
+                Hi {name ? name : "there"},
               </Text>
 
               <Text className="text-[16px] leading-[24px] text-[#525f7f]">

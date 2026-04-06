@@ -5,6 +5,7 @@ import { User } from "@/models/User";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { sendStatusChangeEmail } from "./emails";
 
 interface CreateUserData {
   kindeId: string;
@@ -205,6 +206,7 @@ export async function updateUserRoleAndStatus(
       return { success: false, error: "User not found" };
     }
 
+    await sendStatusChangeEmail(user.firstName, user.email, status);
     revalidatePath("/admin");
     return { success: true, user: JSON.parse(JSON.stringify(user)) };
   } catch (error) {
