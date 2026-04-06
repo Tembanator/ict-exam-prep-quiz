@@ -10,6 +10,7 @@ import {
   useKindeBrowserClient,
 } from "@kinde-oss/kinde-auth-nextjs";
 import { useAdminStatus } from "@/hooks/useAdminStatus";
+import Image from "next/image";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,10 +24,17 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="p-1.5 bg-indigo-100 rounded-lg group-hover:bg-indigo-200 transition-colors">
-              <BookOpen className="w-5 h-5 text-indigo-600" />
+              {/* <BookOpen className="w-5 h-5 text-indigo-600" /> */}
+              <Image
+                src="/nav-logo.png"
+                alt="Logo"
+                width={24}
+                height={24}
+                // className="text-indigo-600"
+              />
             </div>
             <span className="font-bold text-xl text-slate-900">
-              0417<span className="text-indigo-600">ICT</span> Exam Prep
+              0417<span className="text-indigo-600"> ICT</span> Exam Prep
             </span>
           </Link>
 

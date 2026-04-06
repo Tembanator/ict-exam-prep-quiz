@@ -1,4 +1,5 @@
 import { BookOpen } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -9,11 +10,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="p-1.5 bg-indigo-500 rounded-lg">
-                <BookOpen className="w-5 h-5 text-white" />
+              <div className="p-1.5 bg-indigo-600 rounded-lg">
+                {/* <BookOpen className="w-5 h-5 text-white" /> */}
+                <Image src="/nav-logo.png" alt="Logo" width={24} height={24} />
               </div>
               <span className="font-bold text-xl">
-                0417<span className="text-indigo-400">ICT</span> Exam Prep
+                0417<span className="text-indigo-400"> ICT</span> Exam Prep
               </span>
             </div>
             <p className="text-slate-400 text-sm">
