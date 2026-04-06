@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "./AuthProvider";
 import { Navbar } from "./components/landing/Navbar";
 import { FloatingStatus } from "./components/ui/FloatingStatus";
+import Footer from "./components/landing/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <AuthProvider>
           {children}
           <FloatingStatus />
+          <Footer />
         </AuthProvider>
       </body>
     </html>

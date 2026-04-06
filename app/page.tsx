@@ -4,7 +4,7 @@ export default function LandingPage() {
       <HeroSection />
       <FeatureGrid />
       <QuizCTA />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
