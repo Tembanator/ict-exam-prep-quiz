@@ -4,11 +4,11 @@ import StatusChangeEmail from "@/emails/StatusChangeEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendWelcomeEmail = async (name: string) => {
+export const sendWelcomeEmail = async (name: string, email: string) => {
   try {
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "thembadlamini365@gmail.com",
+      to: email,
       subject: "hello world",
       react: WelcomeEmail({ name }),
     });
