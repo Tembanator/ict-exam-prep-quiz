@@ -206,7 +206,7 @@ export async function updateUserRoleAndStatus(
       return { success: false, error: "User not found" };
     }
 
-    await sendStatusChangeEmail(user.firstName, user.email, status);
+    // await sendStatusChangeEmail(user.firstName, user.email, status);
     revalidatePath("/admin");
     return { success: true, user: JSON.parse(JSON.stringify(user)) };
   } catch (error) {
