@@ -54,46 +54,67 @@ export const sendStatusChangeEmail = async (
   try {
     if (status === "approved") {
       // When admin approves a user
-      await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: email,
-        subject: "Your account has been approved",
-        react: StatusChangeEmail({
+
+      const emailHtml = await render(
+        StatusChangeEmail({
           name: name,
           status: "approved",
           customMessage: "Welcome aboard! Start preparing for your exams now.",
         }),
-      });
+      );
+
+      const options = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: "Your account has been approved",
+        html: emailHtml,
+      };
+
+      await transporter.sendMail(options);
     }
 
     if (status === "rejected") {
       // When admin rejects a user
-      await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: email,
-        subject: "Application update",
-        react: StatusChangeEmail({
+
+      const emailHtml = await render(
+        StatusChangeEmail({
           name: name,
           status: "rejected",
           customMessage:
             "Please contact support if you think this is an error.",
         }),
-      });
+      );
+
+      const options = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: "Your application has been rejected",
+        html: emailHtml,
+      };
+
+      await transporter.sendMail(options);
     }
 
     if (status === "pending") {
       // When admin rejects a user
-      await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: email,
-        subject: "Application update",
-        react: StatusChangeEmail({
+
+      const emailHtml = await render(
+        StatusChangeEmail({
           name: name,
           status: "rejected",
           customMessage:
             "Please contact support if you think this is an error.",
         }),
-      });
+      );
+
+      const options = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: "Your application has been rejected",
+        html: emailHtml,
+      };
+
+      await transporter.sendMail(options);
     }
   } catch (error) {
     console.error("Failed to send status change email:", error);

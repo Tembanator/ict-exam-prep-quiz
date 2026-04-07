@@ -40,7 +40,7 @@ export const WelcomeEmail = ({ name }: WelcomeEmailProps) => {
           },
         }}
       >
-        <Body className="bg-[#f6f9fc] font-sans">
+        <Body className="bg-[#f6f9fc] font-sans p-6">
           <Container className="mx-auto my-10 max-w-[600px] bg-white p-10 rounded-xl shadow-sm border border-[#e6ebf1]">
             {/* Logo from /public folder */}
             <Section className="text-center mb-[32px]">
