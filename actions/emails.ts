@@ -20,11 +20,11 @@ export const sendWelcomeEmailResnd = async (name: string, email: string) => {
 };
 
 const transporter = nodemailer.createTransport({
-  host: "gmail",
+  host: "smtp.gmail.com",
   port: 465,
   secure: true,
   auth: {
-    user: "thembadlamini365@gmail.com",
+    user: process.env.EMAIL_USER,
     pass: process.env.GOOGLE_APP_PASSWORD,
   },
 });
@@ -34,9 +34,9 @@ export const sendWelcomeEmail = async (name: string, email: string) => {
     const emailHtml = await render(WelcomeEmail({ name }));
 
     const options = {
-      from: "thembadlamini365@gmail.com",
+      from: process.env.EMAIL_USER,
       to: email,
-      subject: "hello world",
+      subject: "Welcome to 0417 ICT Exam Prep!",
       html: emailHtml,
     };
 
