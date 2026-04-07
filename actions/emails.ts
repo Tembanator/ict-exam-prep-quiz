@@ -1,23 +1,24 @@
-import { Resend } from "resend";
+// import { Resend } from "resend";
 import WelcomeEmail from "@/emails/Welcome";
 import StatusChangeEmail from "@/emails/StatusChangeEmail";
 import { render } from "@react-email/components";
 import nodemailer from "nodemailer";
+import { NewUserNotificationEmail } from "@/emails/NewUserNotificationEmail";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendWelcomeEmailResnd = async (name: string, email: string) => {
-  try {
-    await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: email,
-      subject: "hello world",
-      react: WelcomeEmail({ name }),
-    });
-  } catch (error) {
-    console.error("Failed to send welcome email:", error);
-  }
-};
+// export const sendWelcomeEmailResnd = async (name: string, email: string) => {
+//   try {
+//     await resend.emails.send({
+//       from: "onboarding@resend.dev",
+//       to: email,
+//       subject: "hello world",
+//       react: WelcomeEmail({ name }),
+//     });
+//   } catch (error) {
+//     console.error("Failed to send welcome email:", error);
+//   }
+// };
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -43,6 +44,26 @@ export const sendWelcomeEmail = async (name: string, email: string) => {
     await transporter.sendMail(options);
   } catch (error) {
     console.error("Failed to send welcome email:", error);
+  }
+};
+
+export const sendNewUserNotificationEmail = async (
+  name: string,
+  email: string,
+) => {
+  try {
+    const emailHtml = await render(NewUserNotificationEmail({ name, email }));
+
+    const options = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Send to admin email
+      subject: "We have a new user!",
+      html: emailHtml,
+    };
+
+    await transporter.sendMail(options);
+  } catch (error) {
+    console.error("Failed to send new user notification email:", error);
   }
 };
 
