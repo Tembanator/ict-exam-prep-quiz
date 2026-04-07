@@ -31,8 +31,8 @@ export const NewUserNotificationEmail = ({
   userRole = "Pending Approval",
   registrationDate = new Date().toLocaleString(),
   adminDashboardUrl = "https://ict-exam-prep.onrender.com/admin",
-  approveUrl = "https://ict-exam-prep.onrender.com/api/admin",
-  rejectUrl = "https://ict-exam-prep.onrender.com/api/admin",
+  approveUrl = "https://ict-exam-prep.onrender.com/admin",
+  rejectUrl = "https://ict-exam-prep.onrender.com/admin",
 }: NewUserNotificationProps) => {
   const previewText = `New user registration: ${name} (${email})`;
 
