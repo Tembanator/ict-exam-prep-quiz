@@ -6,10 +6,10 @@ import { redirect } from "next/navigation";
 import { AlertCircle } from "lucide-react";
 import { createOrSyncUser } from "@/actions/users";
 // import { send } from "process";
-// import {
-//   sendNewUserNotificationEmail,
-//   sendWelcomeEmail,
-// } from "@/actions/emails";
+import {
+  // sendNewUserNotificationEmail,
+  sendWelcomeEmail,
+} from "@/actions/emails";
 import NewUserNotificationEmail from "@/emails/NewUserNotificationEmail";
 
 export default async function AuthCallbackPage() {
@@ -60,7 +60,7 @@ export default async function AuthCallbackPage() {
 
   // New user → pending approval page
   if (isNew) {
-    // await sendWelcomeEmail(user.firstName || "there", user.email); // Send welcome email to new user
+    await sendWelcomeEmail(user.firstName || "there", user.email); // Send welcome email to new user
     // await sendNewUserNotificationEmail(user.firstName || "User", user.email); // Notify admin of new user
     redirect("/pending-approval");
   }
